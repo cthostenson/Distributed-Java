@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Demo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .wrapper {
+            width: 960px;
+            margin: 0 auto;
+            padding: 10px;
+            font-family: Helvetica;
+            border: 2px solid #000;
+            border-radius: 15px;
+            box-shadow: 0 0 5px #000;
+            position: relative;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .animation1 {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            border: 3px dashed #0a0a0a;
+            animation: anim 10s ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes anim {
+            0% { top: 0; left: 0;}
+            25% { top: 0; left: 100%;}
+            50% { top: 100%; left: 100%;}
+            75% { top: 100%; left: 0;}
+            100% { top: 0; left: 0;}
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type=text], input[type=submit] {
+            padding: 10px;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+            border: 1px solid #000;
+            border-radius: 7px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Form Demo</h1>
+    <div class="animation1"></div>
+    <form method="get" action="hello">
+        <input type="text" name="param1"><br/>
+        <input type="submit" value="Submit With GET">
+    </form>
+    <form method="post" action="hello">
+        <input type="text" name="param2"><br/>
+        <input type="submit" value="Submit With POST">
+    </form>
+</div>
+</body>
+</html>
