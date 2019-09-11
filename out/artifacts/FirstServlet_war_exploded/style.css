@@ -352,3 +352,31 @@ textarea {
 .movie-wrapper input[type=text] {
 	margin-bottom: 5px;
 }
+
+svg {
+	top: 0;
+	left: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.shape {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	fill: transparent;
+	stroke-dasharray: 230;
+	stroke-dashoffset: -150;
+	stroke-width: 0;
+	stroke: #fff;
+	transition: stroke-dasharray 0.5s ease-in-out, stroke-dashoffset 0.5s ease-in-out, stroke-width 0.5s ease-in-out;
+}
+
+.item-main-img:hover .shape {
+	stroke-dasharray: 230;
+	stroke-dashoffset: 100;
+	stroke-width: 3px;
+	/*-webkit-animation: 0.5s draw ease-in-out both;
+    animation: 0.5s draw ease-in-out both;*/
+}
