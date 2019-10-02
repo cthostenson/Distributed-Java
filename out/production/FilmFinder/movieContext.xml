@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:movie.properties"/>
+
+    <bean id="myMovie" class="springxml.beans.movie">
+        <!-- Setter Injection -->
+        <property name="title" value="${m1.title}"/>
+        <property name="description" value="${m1.description}"/>
+        <property name="director" value="${m1.director}"/>
+        <property name="criticScore" value="${m1.criticScore}"/>
+        <property name="userScore" value="${m1.userScore}"/>
+    </bean>
+
+</beans>
