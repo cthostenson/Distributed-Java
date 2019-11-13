@@ -21,7 +21,7 @@ public class HibernateApp {
         HibernateApp demo = new HibernateApp();
 
         try {
-            //demo.createMovie();
+            demo.createMovie();
             //demo.createGenre();
             //demo.readMovie(1);
             //demo.readGenre(1);
@@ -44,7 +44,7 @@ public class HibernateApp {
         Session session = factory.getCurrentSession();
         session.beginTransaction();
 
-        genre newGenre = new genre("Comedy");
+        genre newGenre = new genre("Dark Comedy");
         System.out.println(newGenre);
         session.save(newGenre);
 
@@ -104,7 +104,7 @@ public class HibernateApp {
         Session session = factory.getCurrentSession();
         session.beginTransaction();
 
-        movie newMovie = new movie("Naked Gun 22 1/2","The Second Naked Gun Film",0,100,100);
+        movie newMovie = new movie("Naked Gun 22 1/2","The Second Naked Gun Film",100,100);
         System.out.println(newMovie);
         session.save(newMovie);
 

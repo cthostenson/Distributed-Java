@@ -1,15 +1,25 @@
 package hibernate.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="genres")
 public class genre {
 
+    // No cascade delete because when we delete a genre, we don't want to delete all the movies with it!
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="genre_id")
-    private int id;
+    private int genreId;
+
+    @OneToMany(mappedBy = "theGenre", cascade = {CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH})
+    private List<movie> movies;
 
     @Column(name="genre")
     private String genre;
@@ -21,12 +31,19 @@ public class genre {
         this.genre = genre;
     }
 
-    public int getId() {
-        return id;
+    public List<movie> getMovies() {
+        return movies;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setMovies(List<movie> movies) {
+        this.movies = movies;
+    }
+
+    public void add(movie newMovie) {
+        if(movies == null) {
+            movies = new ArrayList<>();
+        }
+        movies.add(newMovie);
     }
 
     public String getGenre() {
@@ -40,7 +57,6 @@ public class genre {
     @Override
     public String toString() {
         return "genre{" +
-                "id=" + id +
                 ", genre='" + genre + '\'' +
                 '}';
     }

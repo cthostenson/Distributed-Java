@@ -17,10 +17,13 @@ public class movie {
     @Column(name="description")
     private String description;
 
-    //@OneToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "genre_id")
-    @Column(name="genre_id")
-    private int genre_id;
+    // No cascade delete because when we delete a movie, we don't want to delete the genre with it!
+    @ManyToOne(cascade = {CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH})
+    @JoinColumn(name="genre_id")
+    private genre theGenre;
 
     @Column(name="critic_score")
     private int critic_score;
@@ -31,10 +34,9 @@ public class movie {
     public movie() {
     }
 
-    public movie(String title, String description, int genre_id, int critic_score, int user_score) {
+    public movie(String title, String description, int critic_score, int user_score) {
         this.title = title;
         this.description = description;
-        this.genre_id = genre_id;
         this.critic_score = critic_score;
         this.user_score = user_score;
     }
@@ -63,12 +65,12 @@ public class movie {
         this.description = description;
     }
 
-    public int getGenre_id() {
-        return genre_id;
+    public genre getTheGenre() {
+        return theGenre;
     }
 
-    public void setGenre_id(int genre_id) {
-        this.genre_id = genre_id;
+    public void setTheGenre(genre theGenre) {
+        this.theGenre = theGenre;
     }
 
     public int getCritic_score() {
@@ -93,7 +95,6 @@ public class movie {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", genre_id=" + genre_id +
                 ", critic_score=" + critic_score +
                 ", user_score='" + user_score + '\'' +
                 '}';
