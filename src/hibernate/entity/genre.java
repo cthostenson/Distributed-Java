@@ -1,13 +1,20 @@
 package hibernate.entity;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name="genres")
+//@Entity
+//@Table(name="genres")
+@Repository
 public class genre {
 
+    @Autowired
+    private SessionFactory sessionFactory;
     // No cascade delete because when we delete a genre, we don't want to delete all the movies with it!
 
     @Id

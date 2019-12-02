@@ -1,10 +1,18 @@
 package hibernate.entity;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name="movies")
+//@Entity
+//@Table(name="movies")
+@Repository
 public class movie {
+
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
