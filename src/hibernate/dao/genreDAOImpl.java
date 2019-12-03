@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class genreDAOImpl implements genreDAO {
 
@@ -40,6 +42,37 @@ public class genreDAOImpl implements genreDAO {
 
         // Commit the transaction
         session.getTransaction().commit();
+    }
+
+    @Override
+    public String readSpecificGenre(String term) {
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+
+        genre readGenre = session.createQuery("from genres where genre = term", genre.class).getResultList();
+
+        if(readGenre == null) {
+            System.out.println("Couldn't Find Genre With ID: " + id);
+        } else {
+            System.out.println(readGenre);
+        }
+
+        // Commit the transaction
+        session.getTransaction().commit();
+    }
+
+    @Override
+    public List<genre> readGenres() {
+        Session session = sessionFactory.getCurrentSession();
+        //session.beginTransaction();
+
+        List<genre> list = session.createQuery("from genres", genre.class).getResultList();
+
+        // Commit the transaction
+        //session.getTransaction().commit();
+
+        return list;
+
     }
 
     @Override
