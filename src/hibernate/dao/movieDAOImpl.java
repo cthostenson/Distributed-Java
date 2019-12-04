@@ -4,7 +4,11 @@ import hibernate.entity.movie;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public class movieDAOImpl implements movieDAO {
 
     @Autowired
@@ -24,7 +28,21 @@ public class movieDAOImpl implements movieDAO {
     }
 
     @Override
-    public void readMovie(int id) {
+    public List<movie> readMovies() {
+        Session session = sessionFactory.getCurrentSession();
+        //session.beginTransaction();
+
+        List<movie> list = session.createQuery("from movies", movie.class).getResultList();
+
+        // Commit the transaction
+        //session.getTransaction().commit();
+
+        return list;
+
+    }
+
+    @Override
+    public movie readMovie(int id) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
 
@@ -36,8 +54,25 @@ public class movieDAOImpl implements movieDAO {
             System.out.println(readMovie);
         }
 
+        return readMovie;
         // Commit the transaction
-        session.getTransaction().commit();
+        //session.getTransaction().commit();
+    }
+
+    @Override
+    public List<movie> readSpecificMovie(String searchTerm) {
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+
+        List<movie> list = session.createQuery("from movies m where m.title like 'searchTerm'").getResultList();
+
+        if(list == null) {
+            System.out.println("Couldn't Find Any Movies");
+        }
+
+        return list;
+        // Commit the transaction
+        //session.getTransaction().commit();
     }
 
     @Override
@@ -56,6 +91,7 @@ public class movieDAOImpl implements movieDAO {
         // Commit the transaction
         session.getTransaction().commit();
     }
+
 
     @Override
     public void deleteMovie(int id) {

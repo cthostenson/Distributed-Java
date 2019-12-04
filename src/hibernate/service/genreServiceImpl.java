@@ -23,14 +23,14 @@ public class genreServiceImpl implements genreService {
 
     @Override
     @Transactional
-    public String getGenre(genre aGenre) {
-        return GenreDAO.readGenre(aGenre.getGenreId());
+    public genre getGenre(int id) {
+        return GenreDAO.readGenre(id);
     }
 
     @Override
     @Transactional
-    public getGenreByName(String term) {
-        return GenreDAO.getGenreByName(term);
+    public List<genre> getGenreByName(String term) {
+        return GenreDAO.readSpecificGenre(term);
     }
 
     @Override

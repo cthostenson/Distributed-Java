@@ -28,7 +28,7 @@ public class genreDAOImpl implements genreDAO {
     }
 
     @Override
-    public void readGenre(int id) {
+    public genre readGenre(int id) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
 
@@ -40,25 +40,28 @@ public class genreDAOImpl implements genreDAO {
             System.out.println(readGenre);
         }
 
+        return readGenre;
         // Commit the transaction
-        session.getTransaction().commit();
+        //session.getTransaction().commit();
     }
 
     @Override
-    public String readSpecificGenre(String term) {
+    public List<genre> readSpecificGenre(String term) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
 
-        genre readGenre = session.createQuery("from genres where genre = term", genre.class).getResultList();
+        List<genre> readGenre = session.createQuery("from genres g where g.genre like 'term' ", genre.class).getResultList();
 
         if(readGenre == null) {
-            System.out.println("Couldn't Find Genre With ID: " + id);
+            System.out.println("Couldn't Find Any Genres");
         } else {
             System.out.println(readGenre);
         }
 
+        return readGenre;
+
         // Commit the transaction
-        session.getTransaction().commit();
+        //session.getTransaction().commit();
     }
 
     @Override

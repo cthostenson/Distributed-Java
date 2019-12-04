@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface genreDAO {
     void createGenre();
-    void readGenre(int id);
+    genre readGenre(int id);
     List<genre> readGenres();
-    String readSpecificGenre(String term);
+    List<genre> readSpecificGenre(String term);
     void updateGenre(int id);
     void deleteGenre(int id);
 }
