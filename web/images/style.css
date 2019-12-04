@@ -84,7 +84,7 @@ nav a {
 }
 
 .content {
-	background-image: url("images/bkg.jpg");
+	background-image: url("bkg.jpg");
 }
 
 main {
@@ -165,52 +165,52 @@ article h3, section h3 {
 }
 
 #main1 {
-	background-image: url(images/lionking.jpg);
+	background-image: url(lionking.jpg);
 	background-position: center;
 }
 
 #main2 {
-	background-image: url(images/once.jpg);
+	background-image: url(once.jpg);
 	background-position: 50% 0;
 }
 
 #main3 {
-	background-image: url(images/47.jpg);
+	background-image: url(47.jpg);
 	background-position: 50% 100%;
 }
 
 #main4 {
-	background-image: url(images/endgame.jpg);
+	background-image: url(endgame.jpg);
 	background-position: 50% 16%;
 }
 
 #main5 {
-	background-image: url(images/wick.jpg);
+	background-image: url(wick.jpg);
 	background-position: 50% 0;
 }
 
 #main6 {
-	background-image: url(images/get.jpg);
+	background-image: url(get.jpg);
 	background-position: 50% 50%;
 }
 
 #main7 {
-	background-image: url(images/fox.jpg);
+	background-image: url(fox.jpg);
 	background-position: 50% 67%;
 }
 
 #main8 {
-	background-image: url(images/the.png);
+	background-image: url(the.png);
 	background-position: 50% 8%;
 }
 
 #main9 {
-	background-image: url(images/dark.jpg);
+	background-image: url(dark.jpg);
 	background-position: 50% 25%;
 }
 
 #main10 {
-	background-image: url(images/airplane.jpg);
+	background-image: url(airplane.jpg);
 	background-position: 50% 80%;
 }
 
@@ -264,7 +264,7 @@ section {
 }
 
 .item-img {
-	background-image: url("images/the.png");
+	background-image: url("the.png");
 	background-size: 100%;
 	background-position: center;
 }

@@ -6,7 +6,7 @@ import springxml.beans.movie;
 public class SpringApp {
     public static void main(String[] args) {
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("movieContext.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Other/movieContext.xml");
 
         springxml.beans.movie movie = context.getBean("myMovie", movie.class);
 

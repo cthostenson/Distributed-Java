@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!-- BEGIN NEW HIBERNATE CONFIGURATION -->
 
-    <context:property-placeholder location="classpath:movie.properties"/>
-
+    <!-- Data source and connection pool bean -->
+    <!-- C3P0 library provides connection pool -->
     <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <!-- JDBC Database connection settings -->
         <property name="driverClass" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-        <property name="jdbcUrl" value="jdbc:derby:#{ servletContext.getRealPath('/') }/../../../db"/>
+        <property name="jdbcUrl" value="jdbc:derby:#{ servletContext.getRealPath('/') }/../../../filmfinder"/>
         <property name="user" value="carter"/>
         <property name="password" value="java"/>
 
@@ -21,18 +21,10 @@
         <property name="maxIdleTime" value="30000" />
     </bean>
 
-    <bean id="myMovie" class="springxml.beans.movie">
-        <!-- Setter Injection -->
-        <property name="title" value="${m1.title}"/>
-        <property name="description" value="${m1.description}"/>
-        <property name="director" value="${m1.director}"/>
-        <property name="criticScore" value="${m1.criticScore}"/>
-        <property name="userScore" value="${m1.userScore}"/>
-    </bean>
-
+    <!-- Hibernate session factory bean -->
     <bean id="mySessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="myDataSource"/>
-        <property name="packagesToScan" value="hibernate" />
+        <property name="packagesToScan" value="hibernate.entity" />
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.DerbyTenSevenDialect</prop>
@@ -78,5 +70,4 @@
     <!-- Stops static file requests from going to dispatcher servlet -->
     <!-- See https://stackoverflow.com/questions/40188743/double-asterisk-in-a-request-mapping/40202997 -->
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"></mvc:resources>
-
 </beans>
