@@ -67,12 +67,12 @@ public class genreDAOImpl implements genreDAO {
     @Override
     public List<genre> readGenres() {
         Session session = sessionFactory.getCurrentSession();
-        //session.beginTransaction();
+        session.beginTransaction();
 
         List<genre> list = session.createQuery("from genres", genre.class).getResultList();
 
         // Commit the transaction
-        //session.getTransaction().commit();
+        session.getTransaction().commit();
 
         return list;
 

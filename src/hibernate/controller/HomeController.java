@@ -1,14 +1,21 @@
 package hibernate.controller;
 
+import hibernate.entity.genre;
+import hibernate.service.genreService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private genreService GenreService;
 
     @RequestMapping(path = "/")
     public String showHomePage() {
@@ -62,7 +69,11 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/showListGenrePage", method = RequestMethod.GET)
-    public String showListGenrePage() {
+    public String showListGenrePage(Model theModel) {
+        List<genre> theList = GenreService.getAllGenres();
+        System.out.println(theList);
+        theModel.addAttribute("genres",theList);
+
         return "list-genres";
     }
 

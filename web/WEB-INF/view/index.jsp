@@ -25,7 +25,7 @@
                 <a href="movies.html"><div class="item-link">Movies</div></a>
                 <a href="#"><div class="item-link">Actors</div></a>
                 <a href="#"><div class="item-link">Purchase</div></a>
-                <a href="/showSearchPage"><div class="item-link">Search</div></a>
+                <a href="showSearchPage"><div class="item-link">Search</div></a>
             </nav>
         </div>
         <form:form method = "GET" action = "showSearchPage">

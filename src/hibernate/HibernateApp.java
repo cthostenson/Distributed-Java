@@ -11,7 +11,7 @@ public class HibernateApp {
     private SessionFactory factory;
 
     public HibernateApp() {
-        factory = new Configuration().configure("Other/hibernate.cfg.xml")
+        factory = new Configuration().configure("hibernate.cfg.xml")
                         .addAnnotatedClass(movie.class)
                         .addAnnotatedClass(genre.class)
                         .buildSessionFactory();

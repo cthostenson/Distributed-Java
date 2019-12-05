@@ -22,6 +22,15 @@ public class GenreController {
         @Autowired
         private genreService GenreService;
 
+        @RequestMapping(value = "/showListGenrePage", method = RequestMethod.GET)
+        public String showListGenrePage(Model theModel) {
+            List<genre> theList = GenreService.getAllGenres();
+            System.out.println(theList);
+            theModel.addAttribute("genres",theList);
+
+            return "list-genres";
+        }
+        /*
         @RequestMapping("/list")
         public String listGenres(Model theModel) {
             List<genre> theList = GenreService.getAllGenres();
@@ -29,7 +38,7 @@ public class GenreController {
             theModel.addAttribute("genres", theList);
 
             return "list-genres";
-        }
+        }*/
 
         @GetMapping("/search")
         public String search(@RequestParam("searchTerm") String theSearchTerm,

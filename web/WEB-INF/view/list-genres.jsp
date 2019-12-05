@@ -13,11 +13,13 @@
 </head>
 <body>
 
-<c:forEach var="genre" items="${genres}">
-    <tr>
-        <td>${genre.genre}</td>
-    </tr>
-</c:forEach>
+<table>
+    <c:forEach var="newGenre" items="${genres}">
+        <tr>
+            <td>${newGenre.genre}</td>
+        </tr>
+    </c:forEach>
+</table>
 
 </body>
 </html>
