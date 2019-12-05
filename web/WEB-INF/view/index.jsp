@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +25,24 @@
                 <a href="movies.html"><div class="item-link">Movies</div></a>
                 <a href="#"><div class="item-link">Actors</div></a>
                 <a href="#"><div class="item-link">Purchase</div></a>
-                <a href="search-genres.jsp"><div class="item-link">Search</div></a>
+                <a href="/showSearchPage"><div class="item-link">Search</div></a>
             </nav>
         </div>
+        <form:form method = "GET" action = "showSearchPage">
+            <input type = "submit" value = "Search Page"/>
+        </form:form>
+        <form:form method = "GET" action = "showAddGenrePage">
+            <input type = "submit" value = "Add Genre"/>
+        </form:form>
+        <form:form method = "GET" action = "showEditGenrePage">
+            <input type = "submit" value = "Edit Genre"/>
+        </form:form>
+        <form:form method = "GET" action = "showListGenrePage">
+            <input type = "submit" value = "List Genres Page"/>
+        </form:form>
+        <form:form method = "GET" action = "showDeleteGenrePage">
+            <input type = "submit" value = "Delete Genre Page"/>
+        </form:form>
         <main>
             <article>
                 <div class="item-main"><h2>New</h2></div>

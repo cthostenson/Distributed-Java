@@ -41,9 +41,30 @@ public class HomeController {
         return "errors";
     }
 
-    @RequestMapping(path = "/search-genres")
+    @RequestMapping(value = "/showSearchPage", method = RequestMethod.GET)
     public String showSearchPage() {
         return "search-genres";
     }
+
+    @RequestMapping(value = "/showAddGenrePage", method = RequestMethod.GET)
+    public String showAddGenrePage() {
+        return "add-genre";
+    }
+
+    @RequestMapping(value = "/showEditGenrePage", method = RequestMethod.GET)
+    public String showEditGenrePage() {
+        return "edit-genre";
+    }
+
+    @RequestMapping(value = "/showDeleteGenrePage", method = RequestMethod.GET)
+    public String showDeleteGenrePage() {
+        return "delete-genre";
+    }
+
+    @RequestMapping(value = "/showListGenrePage", method = RequestMethod.GET)
+    public String showListGenrePage() {
+        return "list-genres";
+    }
+
 
 }

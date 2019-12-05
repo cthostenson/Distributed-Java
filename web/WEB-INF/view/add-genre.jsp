@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Search Genres</title>
+    <title>Add Genre</title>
 </head>
 <body>
-<form method="get" action="search">
+<form method="get" action="/showAddGenrePage">
     Movie Search <input type="text" name="searchTerm"/><br/><br/>
     <input type="submit">
 </form>
