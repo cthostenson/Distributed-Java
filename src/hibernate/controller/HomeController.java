@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index() {
-        return "home";
+    @RequestMapping(path = "/")
+    public String showHomePage() {
+        return "index";
     }
 
     @RequestMapping(value="/error")
@@ -39,6 +39,11 @@ public class HomeController {
         theModel.addAttribute("errorMessage", message);
 
         return "errors";
+    }
+
+    @RequestMapping(path = "/search-genres")
+    public String showSearchPage() {
+        return "search-genres";
     }
 
 }

@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- BEGIN NEW HIBERNATE CONFIGURATION -->
 
-   <!-- <context:component-scan base-package="springmvc"/>-->
+   <context:component-scan base-package="hibernate"/>
 
     <!-- Support for conversion, formatting, and validation -->
     <mvc:annotation-driven/>
@@ -27,10 +27,18 @@
         <property name="maxIdleTime" value="30000" />
     </bean>
 
+   <!-- <bean id="myConversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="hibernate.service.converter.StringToDateCon"
+            </list>
+        </property>
+    </bean>-->
+
     <!-- Hibernate session factory bean -->
     <bean id="mySessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="myDataSource"/>
-        <property name="packagesToScan" value="hibernate" />
+        <property name="packagesToScan" value="hibernate.entity" />
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.DerbyTenSevenDialect</prop>
@@ -53,6 +61,7 @@
     <tx:annotation-driven transaction-manager="myTransactionManager"/>
 
     <!-- END NEW HIBERNATE CONFIGURATION -->
+   <!-- <mvc:annotation-driven conversion-service="myConversionService"/> -->
 
     <!-- Support for component scanning -->
     <context:component-scan base-package="hibernate"/>
