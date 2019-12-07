@@ -8,13 +8,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-//@Table(name="genres")
-@Repository
+@Entity
+@Table(name="genres")
 public class genre {
 
-    @Autowired
-    private SessionFactory sessionFactory;
     // No cascade delete because when we delete a genre, we don't want to delete all the movies with it!
 
     @Id
