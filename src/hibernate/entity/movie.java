@@ -6,14 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="movies")
-@Repository
+@Entity
+@Table(name="movies")
 public class movie {
-
-    @Autowired
-    private SessionFactory sessionFactory;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="movie_id")

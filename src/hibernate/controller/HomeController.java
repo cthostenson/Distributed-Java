@@ -22,7 +22,7 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping(value="/error")
+  //  @RequestMapping(value="/error")
     public String showErrorPage(HttpServletRequest request,
                                 Model theModel) {
         int httpErrorCode = (Integer)request.getAttribute("javax.servlet.error.status_code");
