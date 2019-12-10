@@ -4,6 +4,7 @@ import hibernate.dao.genreDAO;
 import hibernate.entity.genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.transaction.Transactional;
 import java.util.Date;
@@ -14,6 +15,12 @@ public class genreServiceImpl implements genreService {
 
     @Autowired
     private genreDAO GenreDAO;
+
+    @Override
+    @Transactional
+    public void createGenre(genre Genre) {
+        GenreDAO.createGenre(Genre);
+    }
 
     @Override
     @Transactional

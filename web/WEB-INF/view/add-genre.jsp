@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: bitstudent
@@ -11,10 +12,10 @@
     <title>Add Genre</title>
 </head>
 <body>
-<h2>Create A Genre</h2>
-<form method="get" action="/AddGenre">
-        Genre <input type="text" name="genre"/><br/><br/>
-    <input type="submit">
-</form>
+<h2>Create A Genre</h2> <!--  modelAttribute="genre"   type="text" name="genre" -->
+    <form:form action="addGenre" modelAttribute="aGenre" enctype="multipart/form-data">
+        Genre <form:input path="genre"/><br/><br/>
+        <input type="submit" value="AddGenre">
+    </form:form>
 </body>
 </html>

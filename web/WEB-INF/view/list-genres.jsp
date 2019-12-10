@@ -12,7 +12,7 @@
     <title>List Genres</title>
 </head>
 <body>
-
+<h2>List Genres</h2>
 <table>
     <c:forEach var="newGenre" items="${genres}">
         <tr>

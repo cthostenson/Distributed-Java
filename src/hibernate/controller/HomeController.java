@@ -5,10 +5,13 @@ import hibernate.service.genreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -54,9 +57,20 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/showAddGenrePage", method = RequestMethod.GET)
-    public String showAddGenrePage() {
+    public String showAddGenrePage(Model theModel) {
+        genre Genre = new genre();
+
+        theModel.addAttribute("aGenre", Genre);
+
         return "add-genre";
     }
+
+    @PostMapping(value = "/addGenre")
+    public String addGenre(Model theModel, @ModelAttribute(name = "aGenre") genre theGenre) {
+        GenreService.createGenre(theGenre);
+        return "index";
+    }
+
 
     @RequestMapping(value = "/showEditGenrePage", method = RequestMethod.GET)
     public String showEditGenrePage() {
@@ -64,8 +78,16 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/showDeleteGenrePage", method = RequestMethod.GET)
-    public String showDeleteGenrePage() {
+    public String showDeleteGenrePage(Model theModel) {
+        List<genre> theList = GenreService.getAllGenres();
+        System.out.println(theList);
+        theModel.addAttribute("genres",theList);
         return "delete-genre";
+    }
+
+    @PostMapping(value = "/deleteGenre")
+    public String deleteGenre(Model theModel) {
+        return "index";
     }
 
     @RequestMapping(value = "/showListGenrePage", method = RequestMethod.GET)

@@ -15,12 +15,12 @@ public class genreDAOImpl implements genreDAO {
     private SessionFactory sessionFactory;
 
     @Override
-    public void createGenre() {
+    public void createGenre(genre Genre) {
         Session session = sessionFactory.getCurrentSession();
 
-        genre newGenre = new genre("Dark Comedy");
-        System.out.println(newGenre);
-        session.save(newGenre);
+        //genre newGenre = new genre("Dark Comedy");
+        //System.out.println(newGenre);
+        session.save(Genre);
 
     }
 

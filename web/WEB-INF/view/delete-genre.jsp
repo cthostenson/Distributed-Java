@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: bitstudent
@@ -11,9 +13,17 @@
     <title>Delete Genre</title>
 </head>
 <body>
-<form method="get" action="/showDeleteGenrePage">
-    Movie Search <input type="text" name="searchTerm"/><br/><br/>
-    <input type="submit">
-</form>
+<form:form action="/deleteGenre">
+    <h2>Delete A Genre</h2>
+    <table>
+        <c:forEach var="newGenre" items="${genres}">
+            <tr>
+                <td>${newGenre.genreId}</td>
+                <td>${newGenre.genre} </td>
+                <td><input type="submit" value="Delete Genre"/></td>
+            </tr>
+        </c:forEach>
+    </table>
+</form:form>
 </body>
 </html>
