@@ -11,9 +11,10 @@
     <title>Add Genre</title>
 </head>
 <body>
-<!--<form method="get" action="/AddGenre">
-    Movie Search <input type="text" name="searchTerm"/><br/><br/>
-    <input type="submit">-->
+<h2>Create A Genre</h2>
+<form method="get" action="/AddGenre">
+        Genre <input type="text" name="genre"/><br/><br/>
+    <input type="submit">
 </form>
 </body>
 </html>
