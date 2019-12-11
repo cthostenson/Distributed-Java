@@ -20,7 +20,7 @@ public class genreDAOImpl implements genreDAO {
 
         //genre newGenre = new genre("Dark Comedy");
         //System.out.println(newGenre);
-        session.save(Genre);
+        session.saveOrUpdate(Genre);
 
     }
 
@@ -65,16 +65,20 @@ public class genreDAOImpl implements genreDAO {
     }
 
     @Override
-    public void updateGenre(int id) {
+    public void updateGenre(genre Genre) {
         Session session = sessionFactory.getCurrentSession();
 
-        genre updateGenre = session.get(genre.class, id);
+        session.saveOrUpdate(Genre);
+        /*genre updateGenre = session.get(genre.class, Genre.getGenreId());
 
         if(updateGenre != null) {
             updateGenre.setGenre("Drama");
         } else {
             System.out.println("Could Not Update Genre");
-        }
+        }*/
+
+        //session.saveOrUpdate(updateGenre);
+
     }
 
     @Override

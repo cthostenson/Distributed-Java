@@ -13,14 +13,18 @@
     <title>Delete Genre</title>
 </head>
 <body>
-<form:form action="/deleteGenre">
+<form:form method="get" action="deleteGenre" modelAttribute="id">
     <h2>Delete A Genre</h2>
     <table>
         <c:forEach var="newGenre" items="${genres}">
             <tr>
                 <td>${newGenre.genreId}</td>
                 <td>${newGenre.genre} </td>
-                <td><input type="submit" value="Delete Genre"/></td>
+                <td><c:url var="deleteLink" value="deleteGenre">
+                    <c:param name="genreId" value="${newGenre.genreId}"/>
+                </c:url>
+                    <a href="${deleteLink}">Delete Genre</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

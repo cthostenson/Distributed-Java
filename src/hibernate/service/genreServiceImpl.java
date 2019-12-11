@@ -43,7 +43,7 @@ public class genreServiceImpl implements genreService {
     @Override
     @Transactional
     public void saveGenre(genre aGenre) {
-        GenreDAO.updateGenre(aGenre.getGenreId());
+        GenreDAO.updateGenre(aGenre);
     }
 
     @Override

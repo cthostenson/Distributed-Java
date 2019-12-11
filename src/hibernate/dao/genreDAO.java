@@ -9,6 +9,6 @@ public interface genreDAO {
     genre readGenre(int id);
     List<genre> readGenres();
     List<genre> readSpecificGenre(String term);
-    void updateGenre(int id);
+    void updateGenre(genre Genre);
     void deleteGenre(int id);
 }

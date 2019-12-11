@@ -15,7 +15,7 @@
 <h2>Create A Genre</h2> <!--  modelAttribute="genre"   type="text" name="genre" -->
     <form:form action="addGenre" modelAttribute="aGenre" enctype="multipart/form-data">
         Genre <form:input path="genre"/><br/><br/>
-        <input type="submit" value="AddGenre">
+        <input type="submit" value="Add Genre">
     </form:form>
 </body>
 </html>

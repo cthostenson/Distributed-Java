@@ -29,19 +29,19 @@
             </nav>
         </div>
         <form:form method = "GET" action = "showSearchPage">
-            <input type = "submit" value = "Search Page"/>
+            <input class="submitLink" type = "submit" value = "Search Page"/>
         </form:form>
         <form:form method = "GET" action = "showAddGenrePage">
-            <input type = "submit" value = "Add Genre"/>
+            <input class="submitLink" type = "submit" value = "Add Genre"/>
         </form:form>
         <form:form method = "GET" action = "showEditGenrePage">
-            <input type = "submit" value = "Edit Genre"/>
+            <input class="submitLink" type = "submit" value = "Edit Genre"/>
         </form:form>
         <form:form method = "GET" action = "showListGenrePage">
-            <input type = "submit" value = "List Genres Page"/>
+            <input class="submitLink" type = "submit" value = "List Genres Page"/>
         </form:form>
         <form:form method = "GET" action = "showDeleteGenrePage">
-            <input type = "submit" value = "Delete Genre Page"/>
+            <input class="submitLink" type = "submit" value = "Delete Genre Page"/>
         </form:form>
         <main>
             <article>
