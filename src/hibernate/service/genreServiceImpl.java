@@ -42,6 +42,12 @@ public class genreServiceImpl implements genreService {
 
     @Override
     @Transactional
+    public List<genre> getGenresByName(String term) {
+        return GenreDAO.readSpecificGenre(term);
+    }
+
+    @Override
+    @Transactional
     public void saveGenre(genre aGenre) {
         GenreDAO.updateGenre(aGenre);
     }

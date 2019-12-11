@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: bitstudent
@@ -11,9 +12,9 @@
     <title>Search Genres</title>
 </head>
 <body>
-<form method="get" action="search">
-    Movie Search <input type="text" name="searchTerm"/><br/><br/>
+<form:form method="get" action="search">
+    Genre Search <input type="text" name="searchTerm"/><br/><br/>
     <input type="submit">
-</form>
+</form:form>
 </body>
 </html>

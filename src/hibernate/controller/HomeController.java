@@ -49,9 +49,19 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/showSearchPage", method = RequestMethod.GET)
-    public String showSearchPage() {
+    public String showSearchPage(Model theModel) {
         return "search-genres";
     }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String showSearchResultsPage(Model theModel) {
+        List<genre> theList = GenreService.getGenresByName("something");
+        System.out.println(theList);
+        theModel.addAttribute("genres",theList);
+
+        return "list-genres";
+    }
+
 
     @RequestMapping(value = "/showAddGenrePage", method = RequestMethod.GET)
     public String showAddGenrePage(Model theModel) {

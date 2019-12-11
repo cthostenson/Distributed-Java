@@ -65,6 +65,16 @@ public class genreDAOImpl implements genreDAO {
     }
 
     @Override
+    public List<genre> readGenresLike(String searchTerm) {
+        Session session = sessionFactory.getCurrentSession();
+
+        List<genre> list = session.createQuery("from genre", genre.class).getResultList();
+
+        return list;
+
+    }
+
+    @Override
     public void updateGenre(genre Genre) {
         Session session = sessionFactory.getCurrentSession();
 
